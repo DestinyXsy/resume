@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>
+            谢尚谕的个人介绍
+        </title>
+        <link rel="stylesheet" type="text/css" href="mystyle.css">
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+        <h1 style="color:black;font-family:'方正舒体',sans-serif;font-size: 3.5em;">
+            {{title}}
+        </h1>
+        <img class="blod" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1042679540,1773761283&fm=26&gp=0.jpg" alt="图片在骑马赶来的路上"  width="350" height="350" title="我会成为大佬的">
+        <div id="profile">
+        <table border="0" style="font-family: '宋体';font-size: 40px;">
+            <caption>基本信息</caption>
+            <tbody>
+            <tr>
+                <template v-for="td in tds">
+                    <th>{{td}}</th>
+                </template>
+            </tr>
+            <tr>
+                <template v-for="value in infomation">
+                    <td>{{value}}</td>
+                </template>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+        <hr/>
+        <div id="instruction" v-html="ins">
+        </div>
+        <hr/>
+        <div id="motto" v-html="motto">
+        </div>
+        <hr/>
+        <div id="link">
+        <mail></mail>
+        </div>
+    </div>
+    </body>
+    <script>
+        var child={
+            template:'<a href="mailto:m15990437346@163.com?subject:对我的评价">点击此处给我发送邮件</a>'
+        }
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                title:"个人主页",
+                tds:[
+                    "姓名","性别","籍贯"
+                ],
+                infomation:{
+                    name:"谢尚谕",
+                    sex:"女",
+                    hometown:"浙江"
+                },
+                ins:"<p>我来自<q>春水碧于天，画船听雨眠</q>的江南水乡。我出生的小镇位于山区，所以抬头一望便是连绵的群山，山上葱葱郁郁，十分赏心悦目。\
+            在我的家乡就读完从小学到高中的所有高中后，我渴望到远方见识更广阔的风景，所以填志愿时主要填北方的大学，最终被长安大学录取。\
+            来到这里后，我的生活发生了一场巨变，我努力去适应全新的生活环境学习方式，去成长为一名合格的长大学子。<br/>\
+            <b>我希望在这个人生的新阶段里，不辜负我的梦想和青春，成为更好的自己。</b></p>",
+               motto:"<p>我的座右铭是：</p>\
+            <blockquote><em>运是强者的谦辞，命是弱者的借口。</em></blockquote>",
+            },
+            components:{
+                'mail':child
+            }
+        })
+        
+    </script>
+</html>
